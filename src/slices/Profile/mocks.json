@@ -1,0 +1,86 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"profile_resume_link": {
+				"key": "c0959198-108b-4a48-bdd2-1f0109fd1934",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "Resume "
+				}
+			},
+			"profile_image": {
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTc1ODE3MDI1OHww&ixlib=rb-4.1.0&q=85",
+				"alt": "silhouette photography of man standing near trees",
+				"origin": {
+					"id": "OBufvGMaBaQ",
+					"url": "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTc1ODE3MDI1OHww&ixlib=rb-4.1.0&q=85",
+					"width": 5408,
+					"height": 4000
+				},
+				"width": 5408,
+				"height": 4000,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"profile_name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Hello I'm Kishore ",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"profile_role": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Software Developer",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"profile_location": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "In Coimbatore ",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"profile_resume": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Resume"
+			}
+		},
+		"items": []
+	}
+]

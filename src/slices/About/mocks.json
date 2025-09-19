@@ -1,0 +1,71 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"about_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Nothing"
+						}
+					}
+				]
+			},
+			"about_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Tempor ipsum dolore enim incididunt labore. Ad eiusmod id consequat anim proident aliqua eu incididunt do. Sit sint nostrud irure ullamco magna sit ex eiusmod amet amet."
+						}
+					}
+				]
+			},
+			"time_line": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"start_date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2013-10-26"
+								}
+							],
+							[
+								"end_date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2019-08-30"
+								}
+							],
+							[
+								"title_description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Adipisicing magna est aliquip ut do adipisicing fugiat anim magna deserunt."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono ,Poppins } from "next/font/google";
 import "./globals.css";
 import { createClient } from "@/prismicio";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -35,11 +41,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center min-h-screen `}
+        className={`${geistMono.variable} ${poppins.variable} antialiased flex  justify-center  min-h-screen font-poppins bg-[#FBF8CC]`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <div className="w-full max-w-7xl">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

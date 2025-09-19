@@ -69,7 +69,11 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice =
+  | WorkSlice
+  | AboutSlice
+  | ProfileSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -171,6 +175,37 @@ export interface SettingDocumentDataNavigationItem {
 }
 
 /**
+ * Item in *Setting  → Nave Logo*
+ */
+export interface SettingDocumentDataNaveLogoItem {
+  /**
+   * Nave Logo field in *Setting  → Nave Logo*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setting.nave_logo[].nave_logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  nave_logo: prismic.ImageField<never>;
+
+  /**
+   * Nave logo link field in *Setting  → Nave Logo*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setting.nave_logo[].nave_logo_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  nave_logo_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
  * Content for Setting  documents
  */
 interface SettingDocumentData {
@@ -217,6 +252,17 @@ interface SettingDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   navigation: prismic.GroupField<Simplify<SettingDocumentDataNavigationItem>>;
+
+  /**
+   * Nave Logo field in *Setting *
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setting.nave_logo[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  nave_logo: prismic.GroupField<Simplify<SettingDocumentDataNaveLogoItem>>;
 }
 
 /**
@@ -236,6 +282,474 @@ export type SettingDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = HomepageDocument | SettingDocument;
+
+/**
+ * Item in *About → Default → Primary → Time Line*
+ */
+export interface AboutSliceDefaultPrimaryTimeLineItem {
+  /**
+   * Start Date field in *About → Default → Primary → Time Line*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.time_line[].start_date
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  start_date: prismic.DateField;
+
+  /**
+   * End Date field in *About → Default → Primary → Time Line*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.time_line[].end_date
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  end_date: prismic.DateField;
+
+  /**
+   * Title Description  field in *About → Default → Primary → Time Line*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.time_line[].title_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *About → Default → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+  /**
+   * About Heading field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.about_heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  about_heading: prismic.RichTextField;
+
+  /**
+   * About Description  field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.about_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  about_description: prismic.RichTextField;
+
+  /**
+   * Time Line field in *About → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.time_line[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  time_line: prismic.GroupField<Simplify<AboutSliceDefaultPrimaryTimeLineItem>>;
+}
+
+/**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
+
+/**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Hero Heading field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  hero_heading: prismic.RichTextField;
+
+  /**
+   * Hero Discretion  field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_discretion
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  hero_discretion: prismic.RichTextField;
+
+  /**
+   * Hero Button Text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  hero_button_text: prismic.KeyTextField;
+
+  /**
+   * Hero Button Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  hero_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Hero Image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  hero_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault;
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Profile → Default → Primary*
+ */
+export interface ProfileSliceDefaultPrimary {
+  /**
+   * Profile Name field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_name
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  profile_name: prismic.RichTextField;
+
+  /**
+   * Profile Role field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_role
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  profile_role: prismic.RichTextField;
+
+  /**
+   * Profile Location  field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_location
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  profile_location: prismic.RichTextField;
+
+  /**
+   * Profile Resume field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_resume
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  profile_resume: prismic.KeyTextField;
+
+  /**
+   * Profile Resume Link field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_resume_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  profile_resume_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Profile Image field in *Profile → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile.default.primary.profile_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  profile_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Profile Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProfileSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProfileSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Profile*
+ */
+type ProfileSliceVariation = ProfileSliceDefault;
+
+/**
+ * Profile Shared Slice
+ *
+ * - **API ID**: `profile`
+ * - **Description**: Profile
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProfileSlice = prismic.SharedSlice<
+  "profile",
+  ProfileSliceVariation
+>;
+
+/**
+ * Item in *Work → Default → Primary → Work List*
+ */
+export interface WorkSliceDefaultPrimaryWorkListItem {
+  /**
+   * Project Image field in *Work → Default → Primary → Work List*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.default.primary.work_list[].project_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  project_image: prismic.ImageField<never>;
+
+  /**
+   * Project Title field in *Work → Default → Primary → Work List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.default.primary.work_list[].project_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  project_title: prismic.RichTextField;
+
+  /**
+   * Project Description  field in *Work → Default → Primary → Work List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.default.primary.work_list[].project_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Item in *Work → Work Variation  → Primary → Work List*
+ */
+export interface WorkSliceWorkVariationPrimaryWorkListItem {
+  /**
+   * Project Image field in *Work → Work Variation  → Primary → Work List*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.workVariation.primary.work_list[].project_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  project_image: prismic.ImageField<never>;
+
+  /**
+   * Project Title field in *Work → Work Variation  → Primary → Work List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.workVariation.primary.work_list[].project_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  project_title: prismic.RichTextField;
+
+  /**
+   * Project Description  field in *Work → Work Variation  → Primary → Work List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.workVariation.primary.work_list[].project_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Work → Default → Primary*
+ */
+export interface WorkSliceDefaultPrimary {
+  /**
+   * Work Title field in *Work → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.default.primary.work_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  work_title: prismic.RichTextField;
+
+  /**
+   * Work Description  field in *Work → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.default.primary.work_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  work_description: prismic.RichTextField;
+
+  /**
+   * Work List field in *Work → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.default.primary.work_list[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  work_list: prismic.GroupField<Simplify<WorkSliceDefaultPrimaryWorkListItem>>;
+}
+
+/**
+ * Default variation for Work Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type WorkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WorkSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Work → Work Variation  → Primary*
+ */
+export interface WorkSliceWorkVariationPrimary {
+  /**
+   * Work Title field in *Work → Work Variation  → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.workVariation.primary.work_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  work_title: prismic.RichTextField;
+
+  /**
+   * Work Description  field in *Work → Work Variation  → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.workVariation.primary.work_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  work_description: prismic.RichTextField;
+
+  /**
+   * Work List field in *Work → Work Variation  → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.workVariation.primary.work_list[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  work_list: prismic.GroupField<
+    Simplify<WorkSliceWorkVariationPrimaryWorkListItem>
+  >;
+}
+
+/**
+ * Work Variation  variation for Work Slice
+ *
+ * - **API ID**: `workVariation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type WorkSliceWorkVariation = prismic.SharedSliceVariation<
+  "workVariation",
+  Simplify<WorkSliceWorkVariationPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Work*
+ */
+type WorkSliceVariation = WorkSliceDefault | WorkSliceWorkVariation;
+
+/**
+ * Work Shared Slice
+ *
+ * - **API ID**: `work`
+ * - **Description**: Work
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type WorkSlice = prismic.SharedSlice<"work", WorkSliceVariation>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -264,7 +778,29 @@ declare module "@prismicio/client" {
       SettingDocument,
       SettingDocumentData,
       SettingDocumentDataNavigationItem,
+      SettingDocumentDataNaveLogoItem,
       AllDocumentTypes,
+      AboutSlice,
+      AboutSliceDefaultPrimaryTimeLineItem,
+      AboutSliceDefaultPrimary,
+      AboutSliceVariation,
+      AboutSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
+      ProfileSlice,
+      ProfileSliceDefaultPrimary,
+      ProfileSliceVariation,
+      ProfileSliceDefault,
+      WorkSlice,
+      WorkSliceDefaultPrimaryWorkListItem,
+      WorkSliceDefaultPrimary,
+      WorkSliceWorkVariationPrimaryWorkListItem,
+      WorkSliceWorkVariationPrimary,
+      WorkSliceVariation,
+      WorkSliceDefault,
+      WorkSliceWorkVariation,
     };
   }
 }

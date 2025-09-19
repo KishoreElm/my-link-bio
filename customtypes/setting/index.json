@@ -54,6 +54,34 @@
             }
           }
         }
+      },
+      "nave_logo": {
+        "type": "Group",
+        "config": {
+          "label": "Nave Logo",
+          "repeat": true,
+          "fields": {
+            "nave_logo": {
+              "type": "Image",
+              "config": {
+                "label": "Nave Logo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "nave_logo_link": {
+              "type": "Link",
+              "config": {
+                "label": "Nave logo link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
       }
     }
   }

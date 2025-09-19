@@ -1,0 +1,71 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"hero_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Typical ",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"hero_discretion": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Minim et enim aliquip esse eiusmod veniam dolore consectetur dolor ad nisi irure consectetur voluptate magna. Incididunt exercitation est proident deserunt laborum deserunt fugiat veniam aliquip in do sunt deserunt pariatur."
+						}
+					}
+				]
+			},
+			"hero_button_link": {
+				"key": "25297f89-f950-4cb6-b414-3fee8bdf525f",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "earth"
+				}
+			},
+			"hero_image": {
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1534432541771-9f2f5cfd1c15?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzU3OTE4OTQwfDA&ixlib=rb-4.1.0&q=85",
+				"alt": "round red fruit on black textile",
+				"origin": {
+					"id": "gfHHeBsAWVQ",
+					"url": "https://images.unsplash.com/photo-1534432541771-9f2f5cfd1c15?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzU3OTE4OTQwfDA&ixlib=rb-4.1.0&q=85",
+					"width": 5291,
+					"height": 3617
+				},
+				"width": 5291,
+				"height": 3617,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"hero_button_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Visit"
+			}
+		},
+		"items": []
+	}
+]

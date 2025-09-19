@@ -1,0 +1,72 @@
+{
+  "id": "profile",
+  "type": "SharedSlice",
+  "name": "Profile",
+  "description": "Profile",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "profile_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Profile Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3,strong,em"
+          }
+        },
+        "profile_role": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Profile Role",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,strong,em"
+          }
+        },
+        "profile_location": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Profile Location ",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "profile_resume": {
+          "type": "Text",
+          "config": {
+            "label": "Profile Resume",
+            "placeholder": ""
+          }
+        },
+        "profile_resume_link": {
+          "type": "Link",
+          "config": {
+            "label": "Profile Resume Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "profile_image": {
+          "type": "Image",
+          "config": {
+            "label": "Profile Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
